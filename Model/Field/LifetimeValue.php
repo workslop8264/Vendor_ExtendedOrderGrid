@@ -61,4 +61,27 @@ class LifetimeValue implements FieldInterface
         $this->cache[$cacheKey] = $res;
         return $res;
     }
+
+    public function isSortable(): bool
+    {
+        return true;
+    }
+
+    public function getArguments(): array
+    {
+        return [
+            'visible' => false,
+            'filter' => 'textRange'
+        ];
+    }
+
+    public function getLabel(): string
+    {
+        return __('Lifetime Revenue');
+    }
+
+    public function getColumnClass(): ?string
+    {
+        return \Vendor\ExtendedOrderGrid\Ui\Component\Listing\Column\LifetimeValue::class;
+    }
 }
